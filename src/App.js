@@ -1,5 +1,7 @@
 import React from "react";
-import Filters from "./components/Product/Filter/Filters";
+import Cart from "./components/Cart/Cart";
+import Filters from "./components/Filter/Filters";
+
 import Products from "./components/Product/Products";
 
 function App() {
@@ -7,7 +9,7 @@ function App() {
     <>
       <Filters />
       <Products />
-      {/* <Cart /> */}
+      <Cart />
     </>
   );
 }

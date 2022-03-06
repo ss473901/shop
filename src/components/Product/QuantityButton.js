@@ -1,5 +1,5 @@
 import React from "react";
-import styledComponents from "styled-components";
+import styled from "styled-components";
 
 const QuantityButton = () => {
   return (
@@ -11,7 +11,7 @@ const QuantityButton = () => {
   );
 };
 
-const QuantitiyButton = styledComponents.div`
+const QuantitiyButton = styled.div`
   min-width: 120px;
   border: 1px solid #222;
   font-family: Arail;
