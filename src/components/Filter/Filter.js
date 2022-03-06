@@ -20,6 +20,8 @@ const FilterButtonActive = styled.span`
   margin: 2px;
   padding: 5px;
   background-color: #56cfe1;
+  border: 1px solid;
+  border-radius: 10px;
 `;
 
 const FilterButton = styled.span`
@@ -27,6 +29,8 @@ const FilterButton = styled.span`
   cursor: pointer;
   margin: 2px;
   padding: 5px;
+  border: 1px solid;
+  border-radius: 10px;
 
   &:hover {
     background-color: #56cfe1;
