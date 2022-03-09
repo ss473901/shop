@@ -1,12 +1,22 @@
-import React from "react";
 import styled from "styled-components";
 
-const QuantityButton = () => {
+const QuantityButton = ({ quantity, setQuantity }) => {
+  const substractQuantity = () => {
+    if (quantity <= 1) return;
+    const newQunatity = quantity - 1;
+    setQuantity(newQunatity);
+  };
+
+  const addQuantity = () => {
+    const newQunatity = quantity + 1;
+    setQuantity(newQunatity);
+  };
+
   return (
     <QuantitiyButton>
-      <button>-</button>
-      <span>10</span>
-      <button>+</button>
+      <button onClick={substractQuantity}>-</button>
+      <span>{quantity}</span>
+      <button onClick={addQuantity}>+</button>
     </QuantitiyButton>
   );
 };

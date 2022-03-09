@@ -1,7 +1,12 @@
+import { useState } from "react";
 import styled from "styled-components";
 import QuantityButton from "./QuantityButton";
+import { useDispatch } from "react-redux";
+import { addItemToCart } from "../../features/cart/cartSlice";
 
 const Product = ({ product }) => {
+  const [quantity, setQuantity] = useState(1);
+  const dispatch = useDispatch();
   return (
     <SContainer>
       <div>
@@ -10,8 +15,14 @@ const Product = ({ product }) => {
       <SDescription>
         <STitle>{product.name}</STitle>
         <p>{product.price}円</p>
-        <QuantityButton />
-        <SButton>カートに入れる</SButton>
+        <QuantityButton quantity={quantity} setQuantity={setQuantity} />
+        <SButton
+          onClick={() => {
+            dispatch(addItemToCart("hi"));
+          }}
+        >
+          カートに入れる
+        </SButton>
         <a href="/">詳細を見る</a>
       </SDescription>
     </SContainer>
