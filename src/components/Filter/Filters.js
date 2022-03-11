@@ -2,14 +2,14 @@ import React from "react";
 import styled from "styled-components";
 import Filter from "./Filter";
 
-const categories = ["果物", "野菜", "全て"];
+const categories = ["野菜", "果物", "全て"];
 
 const Filters = () => {
   return (
     <BorderContainer>
       <b>Chose category:</b>
       {categories.map((category) => (
-        <Filter category={category} isActive={true} />
+        <Filter category={category} />
       ))}
     </BorderContainer>
   );

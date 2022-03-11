@@ -1,14 +1,35 @@
+import { useDispatch, useSelector } from "react-redux";
+import {
+  filterCategory,
+  getSelectedCategory,
+} from "../../features/product/productsSlice";
+
 import styled from "styled-components";
 
-const Filter = ({ isActive, category }) => {
+const Filter = ({ category }) => {
+  const dispatch = useDispatch();
+  const selectedCategory = useSelector(getSelectedCategory);
+
   console.log(category);
 
   return (
     <>
-      {isActive ? (
-        <FilterButtonActive>{category}</FilterButtonActive>
+      {selectedCategory === category ? (
+        <FilterButtonActive
+          onClick={() => {
+            dispatch(filterCategory(category));
+          }}
+        >
+          {category}
+        </FilterButtonActive>
       ) : (
-        <FilterButton>{category}</FilterButton>
+        <FilterButton
+          onClick={() => {
+            dispatch(filterCategory(category));
+          }}
+        >
+          {category}
+        </FilterButton>
       )}
     </>
   );
@@ -25,15 +46,16 @@ const FilterButtonActive = styled.span`
 `;
 
 const FilterButton = styled.span`
-  color: #fff;
+  color: black;
   cursor: pointer;
   margin: 2px;
   padding: 5px;
   border: 1px solid;
   border-radius: 10px;
-
+  background-color: white;
   &:hover {
     background-color: #56cfe1;
+    color: #fff;
   }
 `;
 

@@ -1,30 +1,26 @@
 import Product from "./Product";
-
-const products = [
-  {
-    id: 1,
-    price: 2500,
-    img: "garlic",
-    name: "Garlic - 1kg",
-    category: "vegetable",
-  },
-  {
-    id: 2,
-    price: 2500,
-    img: "lemon",
-    name: "lemon - 1kg",
-    category: "fruit",
-  },
-];
+import { productsProvider } from "../../features/product/products";
+import styled from "styled-components";
+import { useSelector } from "react-redux";
+import { getSelectedCategory } from "../../features/product/productsSlice";
 
 const Products = () => {
+  const selectedCategory = useSelector(getSelectedCategory);
+
   return (
-    <>
-      {products.map((product) => (
-        <Product product={product} />
-      ))}
-    </>
+    <ProductContainer>
+      {productsProvider
+        .filter((product) => {
+          if (selectedCategory === "全て") return true;
+          return selectedCategory === product.category;
+        })
+        .map((product) => (
+          <Product product={product} />
+        ))}
+    </ProductContainer>
   );
 };
+
+const ProductContainer = styled.div``;
 
 export default Products;

@@ -1,6 +1,13 @@
+// hooks
 import { useState } from "react";
+
+// style
 import styled from "styled-components";
+
+// components
 import QuantityButton from "./QuantityButton";
+
+// Redux
 import { useDispatch } from "react-redux";
 import { addItemToCart } from "../../features/cart/cartSlice";
 
@@ -29,6 +36,7 @@ const Product = ({ product }) => {
   );
 };
 
+// style
 const SContainer = styled.div`
   float: left;
   margin: 10px;
