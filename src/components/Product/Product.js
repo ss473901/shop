@@ -25,7 +25,7 @@ const Product = ({ product }) => {
         <QuantityButton quantity={quantity} setQuantity={setQuantity} />
         <SButton
           onClick={() => {
-            dispatch(addItemToCart("hi"));
+            dispatch(addItemToCart({ product, quantity }));
           }}
         >
           カートに入れる

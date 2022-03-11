@@ -1,28 +1,17 @@
 import styled from "styled-components";
 import CartItem from "./CartItem";
-
-const cartItems = [
-  {
-    id: 1,
-    name: "りんご",
-    quantity: 10,
-    price: 350,
-  },
-  {
-    id: 2,
-    name: "みかん",
-    quantity: 10,
-    price: 500,
-  },
-];
+import { useSelector } from "react-redux";
+import { getCartItems, getTotalPrice } from "../../features/cart/cartSlice";
 
 const Cart = () => {
+  const cartItems = useSelector(getCartItems);
+  const totalPrice = useSelector(getTotalPrice);
   return (
     <CartContainer>
       <Title>Cart</Title>
       <CartTotalPriceContainer>
         <p>Total:</p>
-        <CartTotalPrice>2500円</CartTotalPrice>
+        <CartTotalPrice>{totalPrice}円</CartTotalPrice>
       </CartTotalPriceContainer>
       {cartItems.map((cartItem) => (
         <CartItem cartItem={cartItem} />
